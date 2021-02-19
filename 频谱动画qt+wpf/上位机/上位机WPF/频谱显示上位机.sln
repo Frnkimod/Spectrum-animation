@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "频谱显示上位机", "频谱显示上位机.csproj", "{3FAB5DB2-8A02-424E-897D-95F93AAA008E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Debug|x86.ActiveCfg = Debug|x86
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Debug|x86.Build.0 = Debug|x86
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Release|x86.ActiveCfg = Release|x86
+		{3FAB5DB2-8A02-424E-897D-95F93AAA008E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4A586D7-FC92-41F2-AB5F-1A96A9362E19}
+	EndGlobalSection
+EndGlobal

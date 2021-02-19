@@ -1,0 +1,223 @@
+﻿<Window x:Class="CourseWork.OLEDwin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork"
+        mc:Ignorable="d"
+        Title="OLEDwin" Height="300" Width="510" Background="Transparent" Loaded="Window_Loaded" PreviewMouseMove="Window_MouseMove" AllowsTransparency="True"  WindowStyle="None"  WindowStartupLocation="CenterScreen"  MouseMove="Window_MouseMove" >
+    <Window.Resources>
+        <SolidColorBrush x:Key="Color.Border" Color="#FF4EC9FA"/>
+        <Storyboard x:Key="Background">
+            <DoubleAnimation Storyboard.TargetName="PathLeftUp" Storyboard.TargetProperty="StrokeDashOffset"
+                             Duration="0:0:2" RepeatBehavior="Forever" AutoReverse="False" To="-2.2"/>
+            <DoubleAnimation Storyboard.TargetName="PathRightUp" Storyboard.TargetProperty="StrokeDashOffset"
+                             Duration="0:0:2" RepeatBehavior="Forever" AutoReverse="False" To="2.2"/>
+            <ParallelTimeline RepeatBehavior = "Forever" AutoReverse="True">
+                <DoubleAnimation Storyboard.TargetName="PathBgLeft" Storyboard.TargetProperty= "Opacity"
+                                 BeginTime= "0:0:0" Duration= "0:0:0.8" From= "0" To= "1" />
+                <DoubleAnimation Storyboard.TargetName= "PathBgLeft" Storyboard.TargetProperty= "Opacity"
+                                 BeginTime= "0:0:0.8" Duration= "0:0:0.8" From= "1" To= "0" />
+            </ParallelTimeline >
+
+            <ParallelTimeline RepeatBehavior = "Forever" AutoReverse="True">
+                <DoubleAnimation Storyboard.TargetName="PathBgRight" Storyboard.TargetProperty= "Opacity"
+                                 BeginTime= "0:0:0" Duration= "0:0:0.8" From= "0" To= "1" />
+                <DoubleAnimation Storyboard.TargetName= "PathBgRight" Storyboard.TargetProperty= "Opacity"
+                                 BeginTime= "0:0:0.8" Duration= "0:0:0.8" From= "1" To= "0" />
+            </ParallelTimeline >
+        </Storyboard>
+    </Window.Resources>
+    <Window.Clip>
+        <RectangleGeometry 
+            RadiusX="30" 
+            RadiusY="30"
+            Rect="0,0,510,300"/>
+    </Window.Clip>
+    
+    <Grid  Name="BG" Background="Black">
+        <Canvas Name="Root" Loaded="Root_Loaded">
+
+        </Canvas>
+        <Path x:Name="PathBgLeft" Data="M0,0 28,0" HorizontalAlignment="Left" Height="19" Margin="45,175,0,0"
+                              StrokeThickness="19" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"
+                              Stretch="Fill" Stroke="#FFECE448" VerticalAlignment="Top" Width="66"
+                              RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-36"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="PathBgRight" Data="M0,0 28,0" HorizontalAlignment="Right" Height="19" Margin="0,175.333,45,0"
+                              StrokeThickness="19" StrokeStartLineCap="Triangle" StrokeEndLineCap="Flat"
+                              Stretch="Fill" Stroke="#FFECE448" VerticalAlignment="Top" Width="66"
+                              RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="36"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Canvas Name="Back"   Loaded="Back_Loaded">
+            <Path Data="M0,26 L20,0 194,0" Fill="Transparent" 
+                                  StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle"
+                                  HorizontalAlignment="Left" Height="26" 
+                                  StrokeThickness="5" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="150" Canvas.Left="30" Canvas.Top="50"/>
+            <Path Data="M0,0 174,0 194,26 " Fill="Transparent"
+                                  StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle"
+                                  HorizontalAlignment="Right" Height="26" 
+                                  StrokeThickness="5" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="150" Canvas.Right="30" Canvas.Top="50"/>
+            <Path Data="M0,0 L48,0" Fill="Transparent" 
+                                  HorizontalAlignment="Left" Height="10" 
+                                  StrokeThickness="10" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="45.628" RenderTransformOrigin="0.5,0.5" Canvas.Left="170" Canvas.Top="55">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0" AngleX="-55"/>
+                        <RotateTransform Angle="34"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M0,0 L48,0" Fill="Transparent" 
+                                  HorizontalAlignment="Right" Height="10" 
+                                  StrokeThickness="10" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="46.243" RenderTransformOrigin="0.5,0.5" Canvas.Right="170" Canvas.Top="55">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0" AngleX="55"/>
+                        <RotateTransform Angle="-34"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M0,0 L48,0" Fill="Transparent"                   
+                                  HorizontalAlignment="Left" Height="5" 
+                                  StrokeThickness="5" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Left="186" Canvas.Top="35">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0" AngleX="40"/>
+                        <RotateTransform Angle="-50"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M0,0 L48,0" Fill="Transparent" 
+                                  HorizontalAlignment="Right" Height="5" 
+                                  StrokeThickness="5" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Right="186" Canvas.Top="35">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0" AngleX="-40"/>
+                        <RotateTransform Angle="50"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path x:Name="PathLeftUp" Data="M0,0 L50,0" Fill="Transparent" 
+                                  HorizontalAlignment="Left" Height="8" StrokeDashArray="1.7,0.5"
+                                  StrokeThickness="10" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  
+                                  VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Canvas.Left="115" Canvas.Top="60">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="60"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path x:Name="PathRightUp" Data="M0,0 L50,0" Fill="Transparent" 
+                                  HorizontalAlignment="Right" Height="8" StrokeDashArray="1.7,0.5"
+                                  StrokeThickness="10" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Canvas.Right="115" Canvas.Top="60">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-60"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M0,0 L48,0" Fill="Transparent" 
+                                  HorizontalAlignment="Left" Height="4" 
+                                  StrokeThickness="4" Stretch="Fill" Stroke="{Binding Path=NeonBrush}" 
+                                  VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="198.667" Canvas.Top="66" Width="111"/>
+        </Canvas>
+        <TextBlock Name="Week" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"
+                               FontWeight="Bold"
+                                Foreground="#FFEFE663" Margin="0,30,0,0" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="#FFEFE663" ShadowDepth="0" BlurRadius="20" Opacity="0.8"/>
+            </TextBlock.Effect>
+            <TextBlock.Resources>
+                <Style TargetType="{x:Type TextBlock}"/>
+            </TextBlock.Resources>
+        </TextBlock>
+        
+        <TextBlock Text="CPU" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                   FontSize="16" TextAlignment="Center"
+                                   Foreground="{StaticResource Color.Border}" Margin="60,175,0,0" Width="38"/>
+        <TextBlock Text="RAM" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                   FontSize="16" TextAlignment="Center"
+                                   Foreground="{StaticResource Color.Border}" Margin="0,174,60,0" Width="38"/>
+        <TextBlock x:Name="TbkParamLeftValPercent" Text="85%" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                   FontSize="32" TextAlignment="Center"
+                                   Foreground="{StaticResource Color.Border}" Margin="60,200,0,0" Width="99" />
+        <TextBlock x:Name="TbkParamRightValPercent" Text="42%" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                   FontSize="32" TextAlignment="Center"
+                                   Foreground="{StaticResource Color.Border}" Margin="0,194,60,0" Width="99" />
+        <TextBlock x:Name="TbkParamRightVal" Text="325MB" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                   FontSize="16" TextAlignment="Center"
+                                   Foreground="#FF08FF00" Margin="0,235,60,0" Width="90"/>
+        <Border Width="90" Height="10" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                Margin="154,207,0,0" RenderTransformOrigin="0.5,0.5">
+            <Line StrokeThickness="18" StrokeDashArray="0.54 0.2"
+                              X1="0" Y1="0" X2="{Binding Path=ParamValLeft}" Y2="0">
+                <Line.Stroke>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FFF92003" Offset="0"/>
+                        <GradientStop Color="#FFF9D67B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Line.Stroke>
+            </Line>
+        </Border>
+        <Border Width="90" Height="10" VerticalAlignment="Top" HorizontalAlignment="Right"
+                                Margin="0,207,154,0" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Line StrokeThickness="18"   StrokeDashArray="0.54 0.2" RenderTransformOrigin="0.5 0.5"
+                              X1="0" Y1="0" X2="{Binding Path=ParamValRight}" Y2="0" Stroke="#FF78D709"/>
+        </Border>
+        <Grid Margin="155,200,155,60" Width="200">
+            <Path x:Name="PathTriangleLeft" Width="7" Stretch="Fill" Height="7" HorizontalAlignment="Left"
+                                  Fill="Red" Data="M15,14H5l5-9L15,14z" Margin="-4,0,0,0"/>
+            <Path x:Name="PathTriangleRight" Width="7" Stretch="Fill" Height="7" HorizontalAlignment="Right"
+                                  Fill="#FF78D709" Data="M15,14H5l5-9L15,14z" Margin="0,0,-4,0"/>
+        </Grid>
+        
+    </Grid>
+    
+</Window>
